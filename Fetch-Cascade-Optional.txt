@@ -1,0 +1,30 @@
+FETCH 
+Fetch types:
+Eager e Lazy loading
+      O QUE É? 
+- Modos carregamento da resposta de pesquisa a um BD relacional.
+- No caso do lazy, só será carregado algo quando houver um GET, chamado.
+- No caso do Eager tudo é carregado de forma proativa.
+por default as relações dao Eager.
+- @ManyToOne(fetch = FetchType.LAZY)
+**para indicar que será do tipo lazy.
+
+
+OPTIONAL
+      O QUE É?
+- Indica que o preenchimento dos objetos de uma relação seja opcional ou obrigatória.
+por default todas as relações são opcionais; 
+- Caso colocada como false, será obrigatório que um dos objetos da relação seja preenchido.
+
+CASCADE
+      O QUE É? 
+
+- Serve para propagar uma ação.
+EX: quando excluir um objeto, excluir todos os que tem relação com ele
+
+- CascadeType.ALL: reprica tudo a todas as entidades;
+- CascadeType.PERSIST: replica tudo nas entidades quando for chamado pelo persist;
+- CascadeType.REMOVE: replica quando chamado  pelo remove.
+- CascadeType.REFRESH: quando chamado pelo Refresh(quando houver uma atualização em uma das entidades, todas as associadas serão atualizadas);
+- CascadeType.DETACH: remove a entidade e as relacionadas do contexto persistente;
+- CascadeType.MERGE: semelhante ao refresh, porém lida com objetos em estado detached e retorna um objeto managed;
